@@ -3,6 +3,8 @@
 
 This module has largely been based on the [MMM-Ruter](https://github.com/CatoAntonsen/MMM-Ruter) module from CatoAntonsen.
 
+![Screenshot](images/screenshot.png)
+
 Current version is 1.0.0 See [changelog](CHANGELOG.md "Version history") for version history.
 
 ## Installation
@@ -34,6 +36,14 @@ Add the module to the modules array in the `config/config.js` file by adding the
 	header: 'Oslo CityBike',
 	position: 'top_left',
 	config: {
+		lat: {
+			min: 59.930912,
+			max: 59.930912
+		},
+		long: {
+			min: 10.791843,
+			max: 10.791843
+		}
 	}
 },
 ```
@@ -44,6 +54,7 @@ These are the valid configuration options you can put inside the config array ab
 
 Configuration option | Comment | Default 
 ---|---|---
+lat/long, min/max | Use to define a geographical search area, or the precise location of one station | n/a
 serviceReloadInterval | Refresh rate in MS for how often we call Ruter's web service. NB! Don't set it too low! | 30000 
 timeReloadInterval | Refresh rate how often we check if we need to update the time in the GUI | 1000 
 animationSpeed | How fast the animation changes when updating mirror - in milliseconds | 0  

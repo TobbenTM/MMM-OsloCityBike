@@ -21,9 +21,6 @@ Module.register("MMM-OsloCityBike",{
 		return ["ruter.css"];
 	},
 
-	getScripts: function() {
-	},
-
 	getTranslations: function() {
 		return {
 			en: "translations/en.json",
@@ -46,7 +43,7 @@ Module.register("MMM-OsloCityBike",{
 	},
 	
 	getDom: function() {
-		if (this.stations.length > 0) {
+		if (this.stations && this.stations.length > 0) {
 			
 			var table = document.createElement("table");
 			table.className = "ruter small";
@@ -96,12 +93,13 @@ Module.register("MMM-OsloCityBike",{
 			}
 		}
 		
-		var url = "http://reisapi.ruter.no/Place/GetCityBikeStations?longmin=10.791843&longmax=10.791843&latmin=59.930912&latmax=59.930912";
+		var conf = this.config;
+		var url = `http://reisapi.ruter.no/Place/GetCityBikeStations?longmin=${conf.long.min}&longmax=${conf.long.max}&latmin=${conf.lat.min}&latmax=${conf.lat.max}`;
 		
 		var client = new HttpClient();
 
 		client.get(url, function(response) {
-			callback(null, JSON.parse(response))		
+			callback(JSON.parse(response))		
 		});
 	},
 	
