@@ -94,7 +94,7 @@ Module.register("MMM-OsloCityBike",{
 		}
 		
 		var conf = this.config;
-		var url = `http://reisapi.ruter.no/Place/GetCityBikeStations?longmin=${conf.long.min}&longmax=${conf.long.max}&latmin=${conf.lat.min}&latmax=${conf.lat.max}`;
+		var url = `https://reisapi.ruter.no/Place/GetCityBikeStations?longmin=${conf.long.min}&longmax=${conf.long.max}&latmin=${conf.lat.min}&latmax=${conf.lat.max}`;
 		
 		var client = new HttpClient();
 
